@@ -82,22 +82,15 @@ const hotels = [
 ];
 
 function initializePage(page) {
-  const userStatus = document.getElementById("user-status");
   const loginLink = document.getElementById("login-link");
   const signupLink = document.getElementById("signup-link");
-  const logoutLink = document.getElementById("logout-link");
 
   if (currentUser) {
     if (loginLink) loginLink.style.display = "none";
     if (signupLink) signupLink.style.display = "none";
   } else {
-    if (userStatus) {
-      userStatus.textContent = `Welcome, ${currentUser.username || "Guest"}`;
-      userStatus.style.display = "inline";
-    }
     if (loginLink) loginLink.style.display = "inline";
     if (signupLink) signupLink.style.display = "inline";
-    if (logoutLink) logoutLink.style.display = "inline";
   }
 
   if (page === "home") {
