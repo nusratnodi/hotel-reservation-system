@@ -2,44 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hotel Reservation - Signup</title>
-    <link
-      rel="stylesheet"
-      href="../css/style.css"
-    />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
     <div class="navbar">
       <div>
-        <a
-          id="logo"
-          class="main-logo"
-          href="index.html"
-          >Hotel Reservation</a
-        >
+        <a id="logo" class="main-logo" href="index.html">Hotel Reservation</a>
       </div>
       <div>
         <span id="user-status">Welcome, Guest</span>
         <a href="index.html">Home</a>
-        <a
-          href="login.html"
-          id="login-link"
-          >Login</a
-        >
-        <a
-          href="signup.html"
-          id="signup-link"
-          >Signup</a
-        >
-        <a
-          href="#"
-          onclick="logout()"
-          id="logout-link"
-          style="display: none"
+        <a href="login.html" id="login-link">Login</a>
+        <a href="signup.html" id="signup-link">Signup</a>
+        <a href="#" onclick="logout()" id="logout-link" style="display: none"
           >Logout</a
         >
       </div>
@@ -49,10 +26,7 @@
       <div class="section">
         <div class="form-container">
           <h2>Create Your Account</h2>
-          <form
-            id="signup-form"
-            onsubmit="return validateSignup(event)"
-          >
+          <form id="signup-form" onsubmit="return validateSignup(event)">
             <div class="form-grid">
               <div class="form-group">
                 <label for="signup-firstname">First Name</label>
@@ -61,10 +35,7 @@
                   id="signup-firstname"
                   placeholder="Enter first name"
                 />
-                <div
-                  id="signup-firstname-error"
-                  class="error-message"
-                ></div>
+                <div id="signup-firstname-error" class="error-message"></div>
               </div>
               <div class="form-group">
                 <label for="signup-lastname">Last Name</label>
@@ -73,10 +44,7 @@
                   id="signup-lastname"
                   placeholder="Enter last name"
                 />
-                <div
-                  id="signup-lastname-error"
-                  class="error-message"
-                ></div>
+                <div id="signup-lastname-error" class="error-message"></div>
               </div>
               <div class="form-group">
                 <label for="signup-username">Username</label>
@@ -85,10 +53,7 @@
                   id="signup-username"
                   placeholder="Enter username"
                 />
-                <div
-                  id="signup-username-error"
-                  class="error-message"
-                ></div>
+                <div id="signup-username-error" class="error-message"></div>
               </div>
               <div class="form-group">
                 <label for="signup-email">Email</label>
@@ -97,10 +62,7 @@
                   id="signup-email"
                   placeholder="Enter email"
                 />
-                <div
-                  id="signup-email-error"
-                  class="error-message"
-                ></div>
+                <div id="signup-email-error" class="error-message"></div>
               </div>
               <div class="form-group">
                 <label for="signup-phone">Phone Number</label>
@@ -109,21 +71,12 @@
                   id="signup-phone"
                   placeholder="Enter phone number"
                 />
-                <div
-                  id="signup-phone-error"
-                  class="error-message"
-                ></div>
+                <div id="signup-phone-error" class="error-message"></div>
               </div>
               <div class="form-group">
                 <label for="signup-dob">Date of Birth</label>
-                <input
-                  type="date"
-                  id="signup-dob"
-                />
-                <div
-                  id="signup-dob-error"
-                  class="error-message"
-                ></div>
+                <input type="date" id="signup-dob" />
+                <div id="signup-dob-error" class="error-message"></div>
               </div>
               <div class="form-group form-group-full">
                 <label for="signup-password">Password</label>
@@ -132,10 +85,7 @@
                   id="signup-password"
                   placeholder="Enter password"
                 />
-                <div
-                  id="signup-password-error"
-                  class="error-message"
-                ></div>
+                <div id="signup-password-error" class="error-message"></div>
               </div>
             </div>
             <div class="submit-button">
@@ -150,11 +100,5 @@
     </div>
 
     <script src="../js/script.js"></script>
-    <script>
-      // Initialize signup page
-      document.addEventListener("DOMContentLoaded", () => {
-        initializePage("signup");
-      });
-    </script>
   </body>
 </html>

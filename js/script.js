@@ -1,6 +1,5 @@
-let users = JSON.parse(localStorage.getItem("users")) || [];
-let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let currentUser = null;
+let cart = [];
 
 const hotels = [
   {
@@ -82,12 +81,6 @@ const hotels = [
   },
 ];
 
-function saveToLocalStorage() {
-  localStorage.setItem("users", JSON.stringify(users));
-  localStorage.setItem("currentUser", JSON.stringify(currentUser));
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
 function initializePage(page) {
   const userStatus = document.getElementById("user-status");
   const loginLink = document.getElementById("login-link");
@@ -95,18 +88,16 @@ function initializePage(page) {
   const logoutLink = document.getElementById("logout-link");
 
   if (currentUser) {
+    if (loginLink) loginLink.style.display = "none";
+    if (signupLink) signupLink.style.display = "none";
+  } else {
     if (userStatus) {
       userStatus.textContent = `Welcome, ${currentUser.username || "Guest"}`;
       userStatus.style.display = "inline";
     }
-    if (loginLink) loginLink.style.display = "none";
-    if (signupLink) signupLink.style.display = "none";
-    if (logoutLink) logoutLink.style.display = "inline";
-  } else {
-    if (userStatus) userStatus.style.display = "none";
     if (loginLink) loginLink.style.display = "inline";
     if (signupLink) signupLink.style.display = "inline";
-    if (logoutLink) logoutLink.style.display = "none";
+    if (logoutLink) logoutLink.style.display = "inline";
   }
 
   if (page === "home") {
@@ -130,9 +121,7 @@ function displayHotels() {
         <p><strong>Location:</strong> ${hotel.location}</p>
         <p><strong>Price:</strong> BDT ${hotel.price}/night</p>
         <p class="hotel-description">${hotel.description}</p>
-        <button onclick="addToCart(${hotel.id})" ${
-      !currentUser ? "disabled" : ""
-    }>
+        <button onclick="addToCart(${hotel.id})">
           Book Now
         </button>
       </div>
@@ -142,12 +131,6 @@ function displayHotels() {
 }
 
 function addToCart(hotelId) {
-  if (!currentUser) {
-    alert("Please login to add hotels to cart.");
-    window.location.href = "login.html";
-    return;
-  }
-
   const hotel = hotels.find((h) => h.id === hotelId);
   if (!hotel) return;
 
@@ -163,14 +146,12 @@ function addToCart(hotelId) {
     });
   }
 
-  saveToLocalStorage();
   alert(`${hotel.name} added to cart!`);
   displayCart();
 }
 
 function removeFromCart(hotelId) {
   cart = cart.filter((item) => item.id !== hotelId);
-  saveToLocalStorage();
   displayCart();
 }
 
@@ -178,18 +159,11 @@ function updateCartItemQuantity(hotelId, newQuantity) {
   const item = cart.find((item) => item.id === hotelId);
   if (item) {
     item.quantity = Math.max(1, newQuantity);
-    saveToLocalStorage();
     displayCart();
   }
 }
 
 function showCart() {
-  if (!currentUser) {
-    alert("Please login to view cart.");
-    window.location.href = "login.html";
-    return;
-  }
-
   const homeSection = document.getElementById("home");
   const cartSection = document.getElementById("cart");
 
@@ -267,7 +241,6 @@ function checkout() {
 
   alert("Thank you for your booking! Your reservation has been confirmed.");
   cart = [];
-  saveToLocalStorage();
   displayCart();
 
   document.getElementById("home").style.display = "block";
@@ -341,7 +314,6 @@ function validateSignup(event) {
 
   let isValid = true;
 
-  // Validate First Name
   if (!formData.firstname) {
     document.getElementById("signup-firstname-error").textContent =
       "First name is required";
@@ -352,7 +324,6 @@ function validateSignup(event) {
     isValid = false;
   }
 
-  // Validate Last Name
   if (!formData.lastname) {
     document.getElementById("signup-lastname-error").textContent =
       "Last name is required";
@@ -363,7 +334,6 @@ function validateSignup(event) {
     isValid = false;
   }
 
-  // Validate Username
   if (!formData.username) {
     document.getElementById("signup-username-error").textContent =
       "Username is required";
@@ -372,13 +342,8 @@ function validateSignup(event) {
     document.getElementById("signup-username-error").textContent =
       "Must be at least 3 characters";
     isValid = false;
-  } else if (users.some((user) => user.username === formData.username)) {
-    document.getElementById("signup-username-error").textContent =
-      "Username already taken";
-    isValid = false;
   }
 
-  // Validate Email
   if (!formData.email) {
     document.getElementById("signup-email-error").textContent =
       "Email is required";
@@ -387,13 +352,8 @@ function validateSignup(event) {
     document.getElementById("signup-email-error").textContent =
       "Please enter a valid email";
     isValid = false;
-  } else if (users.some((user) => user.email === formData.email)) {
-    document.getElementById("signup-email-error").textContent =
-      "Email already registered";
-    isValid = false;
   }
 
-  // Validate Phone
   if (!formData.phone) {
     document.getElementById("signup-phone-error").textContent =
       "Phone number is required";
@@ -404,7 +364,6 @@ function validateSignup(event) {
     isValid = false;
   }
 
-  // Validate Date of Birth
   if (!formData.dob) {
     document.getElementById("signup-dob-error").textContent =
       "Date of birth is required";
@@ -415,7 +374,6 @@ function validateSignup(event) {
     isValid = false;
   }
 
-  // Validate Password
   if (!formData.password) {
     document.getElementById("signup-password-error").textContent =
       "Password is required";
@@ -426,25 +384,14 @@ function validateSignup(event) {
     isValid = false;
   }
 
-  // If all validations pass
   if (isValid) {
-    // Create new user
-    const newUser = {
-      id: Date.now().toString(),
-      ...formData,
-      createdAt: new Date().toISOString(),
-    };
-
-    users.push(newUser);
     currentUser = {
-      id: newUser.id,
-      username: newUser.username,
-      email: newUser.email,
+      username: formData.username,
+      email: formData.email,
     };
-
-    saveToLocalStorage();
     alert("Signup successful! You are now logged in.");
     window.location.href = "index.html";
+    setTimeout(() => initializePage("home"), 0);
   }
 }
 
@@ -454,13 +401,11 @@ function login(event) {
   const email = document.getElementById("login-email").value.trim();
   const password = document.getElementById("login-password").value;
 
-  // Reset error messages
   document.getElementById("login-email-error").textContent = "";
   document.getElementById("login-password-error").textContent = "";
 
   let isValid = true;
 
-  // Validate email
   if (!email) {
     document.getElementById("login-email-error").textContent =
       "This field is required";
@@ -471,7 +416,6 @@ function login(event) {
     isValid = false;
   }
 
-  // Validate password
   if (!password) {
     document.getElementById("login-password-error").textContent =
       "This field is required";
@@ -483,29 +427,13 @@ function login(event) {
   }
 
   if (isValid) {
-    // Find user
-    const user = users.find((u) => u.email === email);
-
-    if (!user) {
-      document.getElementById("login-email-error").textContent =
-        "No account found with this email";
-      isValid = false;
-    } else if (user.password !== password) {
-      document.getElementById("login-password-error").textContent =
-        "Incorrect password";
-      isValid = false;
-    } else {
-      // Login successful
-      currentUser = {
-        id: user.id,
-        username: user.username,
-        email: user.email,
-      };
-
-      saveToLocalStorage();
-      alert("Login successful!");
-      window.location.href = "index.html";
-    }
+    currentUser = {
+      username: "Guest",
+      email: email,
+    };
+    alert("Login successful!");
+    window.location.href = "index.html";
+    setTimeout(() => initializePage("home"), 0);
   }
 
   return isValid;
@@ -513,7 +441,7 @@ function login(event) {
 
 function logout() {
   currentUser = null;
-  saveToLocalStorage();
+  cart = [];
   window.location.href = "index.html";
 }
 
@@ -571,7 +499,7 @@ function handleSearch(event) {
   }
 }
 
-document.getElementById("logo", () => {
+document.getElementById("logo")?.addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
