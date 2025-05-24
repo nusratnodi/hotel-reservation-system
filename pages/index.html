@@ -1,69 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Hotel Reservation - Home</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="../css/style.css"
+    />
+  </head>
+  <body>
     <div class="navbar">
-        <div>
-            <span id="logo">Hotel Reservation</span>
-        </div>
-        <div>
-            <span id="user-status">Welcome, Guest</span>
-            <a href="login.html" id="login-link">Home</a>
-            <a href="login.html" id="login-link">Login</a>
-            <a href="signup.html" id="signup-link">Signup</a>
-             <a href="#" onclick="showCart()">Cart</a>
-            <a href="#" onclick="logout()" id="logout-link" style="display: none;">Logout</a>
-        </div>
+      <div>
+        <a
+          id="logo"
+          class="main-logo"
+          href="index.html"
+          >Hotel Reservation</a
+        >
+      </div>
+      <div>
+        <span id="user-status">Welcome, Guest</span>
+        <a
+          href="login.html"
+          id="login-link"
+          >Home</a
+        >
+        <a
+          href="login.html"
+          id="login-link"
+          >Login</a
+        >
+        <a
+          href="signup.html"
+          id="signup-link"
+          >Signup</a
+        >
+        <a
+          href="#"
+          onclick="showCart()"
+          >My Booking</a
+        >
+        <a
+          href="#"
+          onclick="logout()"
+          id="logout-link"
+          style="display: none"
+          >Logout</a
+        >
+      </div>
     </div>
 
     <div class="hero">
-       
-    <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?cs=srgb&dl=pexels-pixabay-258154.jpg&fm=jpg" alt="Hotel Image" class="hero-image">
-    <div class="hero-text">
+      <img
+        src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?cs=srgb&dl=pexels-pixabay-258154.jpg&fm=jpg"
+        alt="Hotel Image"
+        class="hero-image"
+      />
+      <div class="hero-text">
         <h1>Welcome to Our Hotel Reservation System</h1>
         <p>Book your stay with us today!</p>
-    </div>
+      </div>
 
-    <div class="search-bar">
-        <form id="search-form" class="search-form">
-            <input type="date" id="check-in" name="check-in" required>
-            <input type="date" id="check-out" name="check-out" required>
-            <input type="text" id="destination" name="destination" placeholder="Enter destination" required>
-            <select id="rooms" name="rooms" required>
-                <option value="" disabled selected>Number of Rooms</option>
-                <option value="1">1 Room</option>
-                <option value="2">2 Rooms</option>
-                <option value="3">3 Rooms</option>
-                <option value="4">4 Rooms</option>
-            </select>
-            <button type="submit">Search</button>
+      <div class="search-bar">
+        <form
+          id="search-form"
+          class="search-form"
+        >
+          <input
+            type="date"
+            id="check-in"
+            name="check-in"
+            required
+          />
+          <input
+            type="date"
+            id="check-out"
+            name="check-out"
+            required
+          />
+          <input
+            type="text"
+            id="destination"
+            name="destination"
+            placeholder="Enter destination"
+            required
+          />
+          <select
+            id="rooms"
+            name="rooms"
+            required
+          >
+            <option
+              value=""
+              disabled
+              selected
+            >
+              Number of Rooms
+            </option>
+            <option value="1">1 Room</option>
+            <option value="2">2 Rooms</option>
+            <option value="3">3 Rooms</option>
+            <option value="4">4 Rooms</option>
+          </select>
+          <button type="submit">Search</button>
         </form>
+      </div>
     </div>
-</div>
 
     <div class="container">
-        <div id="home" class="section">
-            <h1>Popular Hotels</h1>
-            <div class="hotel-grid" id="hotel-list"></div>
-        </div>
+      <div
+        id="home"
+        class="section"
+      >
+        <h1>Popular Hotels</h1>
+        <div
+          class="hotel-grid"
+          id="hotel-list"
+        ></div>
+      </div>
 
-        <div id="cart" class="section" style="display: none;">
-            <h1>Your Cart</h1>
-            <ul id="cart-items"></ul>
-        </div>
+      <div
+        id="cart"
+        class="section"
+        style="display: none"
+      >
+        <h1>Your Booking</h1>
+        <ul id="cart-items"></ul>
+      </div>
     </div>
 
     <script src="../js/script.js"></script>
     <script>
-        // Initialize home page
-        document.addEventListener('DOMContentLoaded', () => {
-            initializePage('home');
-        });
+      // Initialize home page
+      document.addEventListener("DOMContentLoaded", () => {
+        initializePage("home");
+      });
     </script>
-</body>
+  </body>
 </html>
