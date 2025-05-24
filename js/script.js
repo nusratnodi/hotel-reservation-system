@@ -1,4 +1,3 @@
-// Initialize users and currentUser from localStorage
 let users = JSON.parse(localStorage.getItem("users")) || [];
 let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -92,7 +91,6 @@ const hotels = [
   },
 ];
 
-// Save data to localStorage
 function saveToLocalStorage() {
   localStorage.setItem("users", JSON.stringify(users));
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
@@ -100,7 +98,6 @@ function saveToLocalStorage() {
 }
 
 function initializePage(page) {
-  // Update UI based on currentUser
   const userStatus = document.getElementById("user-status");
   const loginLink = document.getElementById("login-link");
   const signupLink = document.getElementById("signup-link");
@@ -257,7 +254,7 @@ function displayCart() {
     cartItems.appendChild(li);
   });
 
-  // Add checkout section
+
   const checkoutDiv = document.createElement("div");
   checkoutDiv.className = "checkout-section";
   checkoutDiv.innerHTML = `
@@ -283,7 +280,6 @@ function checkout() {
   saveToLocalStorage();
   displayCart();
 
-  // Show home section
   document.getElementById("home").style.display = "block";
   document.getElementById("cart").style.display = "none";
 }
@@ -306,7 +302,7 @@ function validateName(name) {
 }
 
 function validatePhone(phone) {
-  const re = /^\+?(88)?0?1[3-9]\d{8}$/; // Bangladeshi phone number pattern
+  const re = /^\+?(88)?0?1[3-9]\d{8}$/; 
   return re.test(phone);
 }
 
@@ -329,7 +325,6 @@ function validateDob(dob) {
 function validateSignup(event) {
   event.preventDefault();
 
-  // Get all form values
   const formData = {
     firstname: document.getElementById("signup-firstname").value.trim(),
     lastname: document.getElementById("signup-lastname").value.trim(),
@@ -340,7 +335,6 @@ function validateSignup(event) {
     password: document.getElementById("signup-password").value,
   };
 
-  // Reset all error messages
   const errorIds = [
     "signup-firstname-error",
     "signup-lastname-error",
@@ -587,11 +581,10 @@ function handleSearch(event) {
   }
 }
 
-// Reload to home
 document.getElementById("logo", () => {
   window.location.href = "index.html";
 });
-// Initialize the page when loaded
+
 document.addEventListener("DOMContentLoaded", () => {
   initializePage("home");
 
