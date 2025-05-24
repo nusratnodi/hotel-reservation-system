@@ -8,8 +8,7 @@ const hotels = [
     name: "Pan Pacific Sonargaon Dhaka",
     price: "12,500",
     location: "107 Kazi Nazrul Islam Avenue, Dhaka 1215",
-    image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/92583733.jpg?k=f3c24f18283ca132bf9069bd15169a65619c8e334abb7fe40083bedd06215cdd&o=&hp=1",
+    image: "../images/image_1.jpg",
     description:
       "Luxury 5-star hotel in the heart of Dhaka with excellent amenities and service.",
   },
@@ -18,8 +17,7 @@ const hotels = [
     name: "Radisson Blu Dhaka Water Garden",
     price: "11,200",
     location: "Kurmitola, Airport Road, Dhaka 1206",
-    image:
-      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/46/7f/a7/radisson-blu-dhaka-water.jpg?w=700&h=-1&s=1",
+    image: "../images/image_2.jpg",
     description:
       "Modern hotel with beautiful water garden, located near the airport.",
   },
@@ -28,8 +26,7 @@ const hotels = [
     name: "The Westin Dhaka",
     price: "13,800",
     location: "Plot CEN 16, Road 106, Gulshan 2, Dhaka 1212",
-    image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/630407098.jpg?k=2cc779d78f0d8a745a4062e320bf1fc5f7d911dc7821559682523e88620d4b76&o=&hp=1",
+    image: "../images/image_3.jpg",
     description:
       "Premium 5-star hotel in Gulshan offering world-class hospitality.",
   },
@@ -38,8 +35,7 @@ const hotels = [
     name: "InterContinental Dhaka",
     price: "10,900",
     location: "1 Minto Road, Dhaka 1000",
-    image:
-      "https://digital.ihg.com/is/image/ihg/intercontinental-dhaka-8304538615-2x1",
+    image: "../images/image_4.jpg",
     description:
       "Iconic hotel in central Dhaka with rich history and excellent facilities.",
   },
@@ -48,8 +44,7 @@ const hotels = [
     name: "Sheraton",
     price: "15,800",
     location: "44 Kemal Ataturk Ave, Banani",
-    image:
-      "https://cache.marriott.com/content/dam/marriott-renditions/DACSI/dacsi-exterior-3237-hor-pano.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1920px:*",
+    image: "../images/image_10.jpg",
     description: "One of the oldest and most prestigious hotels in Dhaka.",
   },
   {
@@ -57,8 +52,7 @@ const hotels = [
     name: "Long Beach Hotel Cox's Bazar",
     price: "8,500",
     location: "14 Kalatoli, Cox's Bazar 4700",
-    image:
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/283183777.jpg?k=899b1542446c88268f790cf9968ddeffe42a7b24c7b228069de09413d5275822&o=&hp=1",
+    image: "../images/image_6.jpg",
     description:
       "Beachfront property with stunning views of the Bay of Bengal.",
   },
@@ -67,8 +61,7 @@ const hotels = [
     name: "Royal Tulip Sea Pearl Beach Resort",
     price: "9,800",
     location: "Marine Drive, Cox's Bazar 4700",
-    image:
-      "https://seapearlcoxsbazar.com/20230826135945im_/http_/www.seapearlcoxsbazar.com/images/rt001.jpg",
+    image: "../images/image_7.jpg",
     description: "Luxury resort offering premium beachside accommodation.",
   },
   {
@@ -76,8 +69,7 @@ const hotels = [
     name: "Grand Sultan Tea Resort & Golf",
     price: "7,200",
     location: "Sreemangal, Moulvibazar 3210",
-    image:
-      "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/0f/32/e8/grand-sultan-tea-resort.jpg?w=500&h=-1&s=1",
+    image: "../images/image_8.jpg",
     description: "Unique tea garden resort with golf course in Sylhet region.",
   },
   {
@@ -85,8 +77,7 @@ const hotels = [
     name: "The Peninsula Chittagong",
     price: "6,500",
     location: "Nizam Road, Chittagong 4000",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjE_8lLF1PkV809ssPwxUiM2egMiiOUNROQg&s",
+    image: "../images/image_9.jpg",
     description: "Elegant hotel in the commercial capital of Bangladesh.",
   },
 ];
@@ -254,7 +245,6 @@ function displayCart() {
     cartItems.appendChild(li);
   });
 
-
   const checkoutDiv = document.createElement("div");
   checkoutDiv.className = "checkout-section";
   checkoutDiv.innerHTML = `
@@ -302,7 +292,7 @@ function validateName(name) {
 }
 
 function validatePhone(phone) {
-  const re = /^\+?(88)?0?1[3-9]\d{8}$/; 
+  const re = /^\+?(88)?0?1[3-9]\d{8}$/;
   return re.test(phone);
 }
 
