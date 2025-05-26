@@ -480,10 +480,8 @@ function handleSearch(event) {
           <p><strong>Location:</strong> ${hotel.location}</p>
           <p><strong>Price:</strong> BDT ${hotel.price}/night</p>
           <p class="hotel-description">${hotel.description}</p>
-          <button onclick="addToCart(${hotel.id})" ${
-        !currentUser ? "disabled" : ""
-      }>
-            Add to Cart
+          <button onclick="addToCart(${hotel.id})">
+            Book Now
           </button>
         </div>
       `;
