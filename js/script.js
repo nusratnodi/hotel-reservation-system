@@ -241,41 +241,29 @@ function checkout() {
 }
 
 function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
+  return email;
 }
 
 function validatePassword(password) {
-  return password.length >= 6;
+  return password;
 }
 
 function validateUsername(username) {
-  return username.length >= 3;
+  return username;
 }
 
 function validateName(name) {
-  return name.length >= 2 && /^[a-zA-Z\s-]+$/.test(name);
+  return name;
 }
 
 function validatePhone(phone) {
-  const re = /^\+?(88)?0?1[3-9]\d{8}$/;
-  return re.test(phone);
+  return phone;
 }
 
 function validateDob(dob) {
   const today = new Date();
   const birthDate = new Date(dob);
-  const age = today.getFullYear() - birthDate.getFullYear();
-  const monthDiff = today.getMonth() - birthDate.getMonth();
-
-  if (
-    monthDiff < 0 ||
-    (monthDiff === 0 && today.getDate() < birthDate.getDate())
-  ) {
-    age--;
-  }
-
-  return birthDate <= today && age >= 18;
+  return birthDate;
 }
 
 function validateSignup(event) {
