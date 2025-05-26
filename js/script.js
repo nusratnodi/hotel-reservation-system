@@ -372,7 +372,7 @@ function validateSignup(event) {
     };
     alert("Signup successful! You are now logged in.");
     window.location.href = "index.html";
-    setTimeout(() => initializePage("home"), 0);
+   
   }
 }
 
@@ -414,7 +414,7 @@ function login(event) {
     };
     alert("Login successful!");
     window.location.href = "index.html";
-    setTimeout(() => initializePage("home"), 0);
+    
   }
 
   return isValid;
