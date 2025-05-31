@@ -3,74 +3,164 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hotel Reservation - Home</title>
+    <title>Traditional Attire - Home</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
     <div class="navbar">
       <div>
-        <a id="logo" class="main-logo" href="index.html">Hotel Reservation</a>
+        <a id="logo" class="main-logo" href="index.html">Traditional Attire</a>
       </div>
       <div>
-        <span id="user-status">Welcome, Guest</span>
-        <a href="index.html" id="login-link">Home</a>
-        <a href="login.html" id="login-link">Login</a>
-        <a href="signup.html" id="signup-link">Signup</a>
-        <a href="#" onclick="showCart()">My Booking</a>
-        <a href="index.html" id="logout-link">Logout</a>
+        <a href="index.html" id="home-link">Home</a>
+        <a href="saree.html">Saree</a>
+        <a href="salwar.html">Salwar</a>
+        <a href="shoes.html">Shoes</a>
       </div>
     </div>
-
-    <div class="hero">
-      <img
-        src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?cs=srgb&dl=pexels-pixabay-258154.jpg&fm=jpg"
-        alt="Hotel Image"
-        class="hero-image"
-      />
-      <div class="hero-text">
-        <h1>Welcome to Our Hotel Reservation System</h1>
-        <p>Book your stay with us today!</p>
-      </div>
-
-      <div class="search-bar">
-        <form id="search-form" class="search-form">
-          <input type="date" id="check-in" name="check-in" required />
-          <input type="date" id="check-out" name="check-out" required />
-          <input
-            type="text"
-            id="destination"
-            name="destination"
-            placeholder="Enter destination"
-            required
-          />
-          <select id="rooms" name="rooms" required>
-            <option value="" disabled selected>Number of Rooms</option>
-            <option value="1">1 Room</option>
-            <option value="2">2 Rooms</option>
-            <option value="3">3 Rooms</option>
-            <option value="4">4 Rooms</option>
-          </select>
-          <button type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-
     <div class="container">
       <div id="home" class="section">
-        <h1>Popular Hotels</h1>
-        <div class="hotel-grid" id="hotel-list"></div>
-      </div>
-
-      <div id="cart" class="section" style="display: none">
-        <h1>Your Booking</h1>
-        <ul id="cart-items"></ul>
+        <div>
+          <img
+            src="https://t3.ftcdn.net/jpg/03/20/68/66/360_F_320686681_Ur6vdYQgDC9WiijiVfxlRyQffxOgfeFz.jpg"
+            alt="Saree Image"
+            class="hero-image"
+          />
+          <div class="hero-text">
+            <h1>Welcome to Traditional Attire</h1>
+            <p>Explore our exquisite collection of sarees and more!</p>
+          </div>
+        </div>
+        <h1>Popular Sarees</h1>
+        <div class="hotel-grid" id="saree-list">
+          <div class="hotel-card">
+            <img
+              src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQCbMVXzzU8YabhT4-kb10cQqIAUa44OE219PgtZ5rWD3FY68yJEfFP__w_Gs0TQuj22L8fY3OyhCI_qMbydifdgiNQkCT_Jda5devO34xms0YjcMKf3d6w"
+              alt="Banarasi Silk Saree"
+            />
+            <div class="hotel-card-content">
+              <h3>Banarasi Silk Saree</h3>
+              <p><strong>Fabric:</strong> Pure Silk</p>
+              <p><strong>Price:</strong> BDT 15,000</p>
+              <p class="hotel-description">
+                Intricate handwoven saree from Varanasi, perfect for weddings.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <img
+              src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTqkknCpuvnCUReJbGHc46dnBzvy9YpLpEiLir1cU5qex_x90CdK3sHgpAFpGsH69gWulia71Wag6Oc6bmfKMKiEAUbLOI_3assXgDIgWb8_3w_y427eKkxFg"
+              alt="Kanjivaram Saree"
+            />
+            <div class="hotel-card-content">
+              <h3>Kanjivaram Saree</h3>
+              <p><strong>Fabric:</strong> Silk</p>
+              <p><strong>Price:</strong> BDT 12,500</p>
+              <p class="hotel-description">
+                Vibrant silk saree with traditional South Indian motifs.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <img
+              src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQX3eKRSSA9p5HW1fRe5vKCEVI6dhjjk6BELcisN3N4Kl73sNztsmozOMR9kDfluIibP23-z-nKAgUeSqjo2zGa7cplIg15vj94Xlk7Zxg"
+              alt="Dhaka Jamdani Saree"
+            />
+            <div class="hotel-card-content">
+              <h3>Dhaka Jamdani Saree</h3>
+              <p><strong>Fabric:</strong> Cotton-Silk Blend</p>
+              <p><strong>Price:</strong> BDT 8,000</p>
+              <p class="hotel-description">
+                Lightweight, handwoven saree with intricate patterns from Dhaka.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <img
+              src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRz2Y0kJxx_E1wnmU9CriwIIqy5MDh1pEGGZFQolTNSC-EEijaqNtvhs0mc49GTLKlglTg7lrkJUEMNYnJXkX-cBNB8PXHrYP6BD5r7ZxRv"
+              alt="Chiffon Embroidered Saree"
+            />
+            <div class="hotel-card-content">
+              <h3>Chiffon Embroidered Saree</h3>
+              <p><strong>Fabric:</strong> Chiffon</p>
+              <p><strong>Price:</strong> BDT 6,500</p>
+              <p class="hotel-description">
+                Elegant saree with delicate embroidery, ideal for parties.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQfc3zYKv2EPplfbQrv7gOv3El1pWk6NZBmQv8HAbsWBVIuJf6kDdiOLjgPELDykgF7c3QaMPP2rk5JF1Xx8V1JQmsRBJHIewNLupVRv4qhbauqe7olvBZr"
+              alt="Tussar Silk Saree"
+            />
+            <div class="hotel-card-content">
+              <h3>Tussar Silk Saree</h3>
+              <p><strong>Fabric:</strong> Tussar Silk</p>
+              <p><strong>Price:</strong> BDT 9,500</p>
+              <p class="hotel-description">
+                Rustic yet elegant saree with a natural sheen.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <img
+              src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTdu6alPnafpG8Y6Ie4oUJBz2w_VeRBr8roTNqOOJJmoDLIup6m2GyOKLitwM066TrgbpYmRV92piyNAiRxRjOMD4dObfQIOH_1h3qW9T2z8gU0FRXcfK7R"
+              alt="Handwoven Cotton Saree"
+            />
+            <div class="hotel-card-content">
+              <h3>Handwoven Cotton Saree</h3>
+              <p><strong>Fabric:</strong> Cotton</p>
+              <p><strong>Price:</strong> BDT 4,500</p>
+              <p class="hotel-description">
+                Comfortable and stylish saree for daily wear.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <img
+              src="https://m.media-amazon.com/images/I/91MUaVI6KpL.jpg"
+              alt="Georgette Printed Saree"
+            />
+            <div class="hotel-card-content">
+              <h3>Georgette Printed Saree</h3>
+              <p><strong>Fabric:</strong> Georgette</p>
+              <p><strong>Price:</strong> BDT 5,800</p>
+              <p class="hotel-description">
+                Lightweight saree with vibrant prints for casual occasions.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <img
+              src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRZKF8-mdF89_jbQpf-zmpD6L3Us2G1Pl1mXNgjiLCPHz5jteIwQZwsWGzJU6RTw930lRpuECg2AryfiMjtYw9Zem1ENxnIl58ofertfFMRIujRI9y5O-w8zQ"
+              alt="Paithani Silk Saree"
+            />
+            <div class="hotel-card-content">
+              <h3>Paithani Silk Saree</h3>
+              <p><strong>Fabric:</strong> Silk</p>
+              <p><strong>Price:</strong> BDT 18,000</p>
+              <p class="hotel-description">
+                Luxurious saree with traditional Maharashtrian designs.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <img
+              src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRZKF8-mdF89_jbQpf-zmpD6L3Us2G1Pl1mXNgjiLCPHz5jteIwQZwsWGzJU6RTw930lRpuECg2AryfiMjtYw9Zem1ENxnIl58ofertfFMRIujRI9y5O-w8zQ"
+              alt="Linen Saree"
+            />
+            <div class="hotel-card-content">
+              <h3>Linen Saree</h3>
+              <p><strong>Fabric:</strong> Linen</p>
+              <p><strong>Price:</strong> BDT 7,200</p>
+              <p class="hotel-description">
+                Breathable and chic saree for a sophisticated look.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="form-footer">
-      <span>© 2025 Hotel Reservation. All rights reserved.</span>
-    </div>
-
-    <script src="../js/script.js"></script>
   </body>
 </html>
